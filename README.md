@@ -1,29 +1,27 @@
-# 30 Days DevOps Challenge - Weather Dashboard
-
-Day 1: Building a weather data collection system using AWS S3 and OpenWeather API
-
+# 30 Days DevOps Challenge - Dashboard Météo
 # Weather Data Collection System - DevOps Day 1 Challenge
+# Day 1: Building a weather data collection system using AWS S3 and OpenWeather API
 
-## Project Overview
-This project is a Weather Data Collection System that demonstrates core DevOps principles by combining:
-- External API Integration (OpenWeather API)
-- Cloud Storage (AWS S3)
-- Infrastructure as Code
-- Version Control (Git)
-- Python Development
-- Error Handling
-- Environment Management
+## Aperçu du projet
+Ce projet est un système de collecte de données météorologiques qui démontre les principes fondamentaux de DevOps en combinant :
+- Intégration d'API externes (API OpenWeather)
+- Stockage dans le cloud (AWS S3)
+- Infrastructure en tant que code
+- Contrôle de version (Git)
+- Développement Python
+- Gestion des erreurs
+- Gestion de l'environnement
 
-## Features
-- Fetches real-time weather data for multiple cities
-- Displays temperature (°F), humidity, and weather conditions
-- Automatically stores weather data in AWS S3
-- Supports multiple cities tracking
-- Timestamps all data for historical tracking
+## Caractéristiques du projet
+- Récupère les données météorologiques en temps réel pour plusieurs villes
+- Affiche la température (°F), l'humidité et les conditions météorologiques
+- Stocke automatiquement les données météorologiques dans AWS S3
+- Prend en charge le suivi de plusieurs villes
+- Horodatage de toutes les données pour un suivi historique
 
-## Technical Architecture
-- **Language:** Python 3.x
-- **Cloud Provider:** AWS (S3)
+## Architecture technique
+-  Python 3.x
+-   AWS (S3)
 - **External API:** OpenWeather API
 - **Dependencies:** 
   - boto3 (AWS SDK)
@@ -31,7 +29,7 @@ This project is a Weather Data Collection System that demonstrates core DevOps p
   - requests
 
 ```markdown
-## Project Structure
+## Structure du projet
 weather-dashboard/
   src/
     __init__.py
@@ -42,32 +40,34 @@ weather-dashboard/
   .gitignore
   requirements.txt
 
-## Setup Instructions
+## Instructions de configuration
 1. Clone the repository:
 --bash
-git clone https://github.com/ShaeInTheCloud/30days-weather-dashboard.git
+git clone https://github.com/sekedoua/30days-weather-dashboard.git
 
 3. Install dependencies:
-bashCopypip install -r requirements.txt
+--bash
+pip install -r requirements.txt
 
-4. Configure environment variables (.env):
-CopyOPENWEATHER_API_KEY=your_api_key
-AWS_BUCKET_NAME=your_bucket_name
+4. Configuration des variable d'environnement fichier ( fichier .env):
+OPENWEATHER_API_KEY="votre_cle_API"
+AWS_BUCKET_NAME="nom_de_votre_compartiment_S3"
 
-4.Configure AWS credentials:
-bashCopyaws configure
+4.Configure  de vos accès AWS :
+--bash 
+aws configure
 
-5. Run the application:
+5. Lancer l'application :
 python src/weather_dashboard.py
 
-What I Learned
+Ce que j'ai appris
 
-AWS S3 bucket creation and management
-Environment variable management for secure API keys
-Python best practices for API integration
-Git workflow for project development
-Error handling in distributed systems
-Cloud resource management
+Création et gestion de buckets/compartiments AWS S3
+Gestion des variables d'environnement pour des clés API sécurisées
+Bonnes pratiques Python pour l'intégration d'API
+Flux de travail Git pour le développement de projets
+Gestion des erreurs dans les systèmes distribués
+Gestion des ressources cloud
 
 Future Enhancements
 
