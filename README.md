@@ -10,6 +10,9 @@ Ce projet est un système de collecte de données météorologiques qui démontr
 - Développement Python
 - Gestion des erreurs
 - Gestion de l'environnement
+- Tests automatisés avec Python VS Code debugger extension
+
+
 
 ## Fonctionnalités du projet
 - Récupère les données météorologiques en temps réel pour plusieurs villes
@@ -18,10 +21,12 @@ Ce projet est un système de collecte de données météorologiques qui démontr
 - Prend en charge le suivi de plusieurs villes
 - Horodatage de toutes les données pour un suivi historique
 - Intégration de prévisions météorologiques
-- Visualisation des données
-- Données météo de 7 villes
-- Tests automatisés
+- Visualisation des données données météo de 7 villes Avec AWS QuickSight 
 - Pipeline CI/CD avec git Actions
+
+![Alt text](img/Jointure_Forcast_Weather.PNG)
+![Alt text](img/quick_sight_dash.PNG)
+![Alt text](img/quick_sight.PNG)
 
 ## Architecture technique
 -  Python 3.x
@@ -38,6 +43,11 @@ weather-dashboard/
   src/
     __init__.py
     weather_dashboard.py
+    quick_sight_manifest_forcast.json
+    quick_sight_manifest_weather.json
+    quick_sight_manifest.json
+    img/
+
   tests/
   data/
   .env
@@ -49,7 +59,7 @@ weather-dashboard/
 --bash
 git clone https://github.com/sekedoua/30days-weather-dashboard.git
 
-3. Install dependencies:
+3. Installation des dépendances:
 --bash
 pip install -r requirements.txt
 
@@ -57,7 +67,7 @@ pip install -r requirements.txt
 OPENWEATHER_API_KEY="votre_cle_API"
 AWS_BUCKET_NAME="nom_de_votre_compartiment_S3"
 
-4.Configure  de vos accès AWS :
+4.Configuration  des accès AWS :
 --bash 
 aws configure
 
@@ -72,6 +82,7 @@ Bonnes pratiques Python pour l'intégration d'API
 Flux de travail Git pour le développement de projets
 Gestion des erreurs dans les systèmes distribués
 Gestion des ressources cloud
+
 
 
 

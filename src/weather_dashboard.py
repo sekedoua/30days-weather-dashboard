@@ -34,7 +34,7 @@ class WeatherDashboard:
         params = {
             "q": city,
             "appid": self.api_key,
-            "units": "imperial"
+            "units": "metric"
         }
         
         try:
@@ -44,28 +44,57 @@ class WeatherDashboard:
         except requests.exceptions.RequestException as e:
             print(f"Error fetching weather data: {e}")
             return None
+    
+    def fetch_forcast(self, city):
+        """Fetch forcasy data from OpenWeather API"""
+        base_url_forcast = "http://api.openweathermap.org/data/2.5/forecast"
+        params = {
+            "q": city,
+            "appid": self.api_key,
+            "units": "metric"
+        }
+        
+        try:
+            response = requests.get(base_url_forcast, params=params)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching weather data: {e}")
+            return None
 
-    def save_to_s3(self, weather_data, city):
+    def save_to_s3(self, weather_data,forcast_data, city):
         """Save weather data to S3 bucket"""
-        if not weather_data:
+        if not weather_data or not forcast_data :
             return False
             
         timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')
-        file_name = f"weather-data/{city}-{timestamp}.json"
-        
+        file_name_weather = f"weather-data/{city}-{timestamp}.json"
+        file_name_foracast = f"forcast-data/{city}-{timestamp}.json"
         try:
             weather_data['timestamp'] = timestamp
+            forcast_data['timestamp'] = timestamp
+            
             self.s3_client.put_object(
                 Bucket=self.bucket_name,
-                Key=file_name,
+                Key=file_name_weather,
                 Body=json.dumps(weather_data),
                 ContentType='application/json'
             )
-            print(f"Successfully saved data for {city} to S3")
+            print(f"Successfully saved weather data for {city} to S3")
+            self.s3_client.put_object(
+                Bucket=self.bucket_name,
+                Key=file_name_foracast,
+                Body=json.dumps(forcast_data),
+                ContentType='application/json'
+            )
+            print(f"Successfully saved forcast data for {city} to S3")
+            
             return True
+        
         except Exception as e:
             print(f"Error saving to S3: {e}")
             return False
+        
 
 def main():
     dashboard = WeatherDashboard()
@@ -73,28 +102,36 @@ def main():
     # Create bucket if needed
     dashboard.create_bucket_if_not_exists()
     
-    cities = ["Philadelphia", "Seattle", "New York","Paris","Abidjan","Cotonou","Dallas"]
+    cities = ["Philadelphia", "Seattle", "New York","Paris","Abidjan","Cotonou","Dallas","Addis-Abeba"]
     
     for city in cities:
-        print(f"\nFetching weather for {city}...")
+        print(f"\nFetching weather and 5 days forcast for {city}...")
         weather_data = dashboard.fetch_weather(city)
-        if weather_data:
+        forcast_data= dashboard.fetch_forcast(city)
+        if weather_data or forcast_data :
             temp = weather_data['main']['temp']
             feels_like = weather_data['main']['feels_like']
             humidity = weather_data['main']['humidity']
             description = weather_data['weather'][0]['description']
-            
-            print(f"Temperature: {temp}°F")
-            print(f"Feels like: {feels_like}°F")
+            min_temp_forcast= forcast_data['list'][0]['main']['temp_min']
+            max_temp_forcast= forcast_data ['list'][0]['main']['temp_max']
+            prec_prob = forcast_data['list'][0]['pop']
+        
+            print(f"Temperature: {temp}°C")
+            print(f"Feels like: {feels_like}°C")
             print(f"Humidity: {humidity}%")
             print(f"Conditions: {description}")
-            
+            print(f"Max temperature forcast :{max_temp_forcast}°C")
+            print(f"Min temperature forcast :{min_temp_forcast}°C")
+            print(f"Probability of precipitation :{prec_prob*100}%")
+      
+
             # Save to S3
-            success = dashboard.save_to_s3(weather_data, city)
+            success = dashboard.save_to_s3(weather_data,forcast_data,city)
             if success:
-                print(f"Weather data for {city} saved to S3!")
+                print(f"Weather and forcast data for {city} saved to S3!")
         else:
-            print(f"Failed to fetch weather data for {city}")
+            print(f"Failed to fetch weather or forcast data for {city}")
 
 if __name__ == "__main__":
     main()

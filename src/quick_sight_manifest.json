@@ -1,0 +1,20 @@
+{
+  "fileLocations": [
+    {
+      "URIPrefixes": [
+        "s3://s3-devopschallenge-day1-weatherdashboard/weather-data/"
+      ]
+    },
+    {
+      "URIPrefixes": [
+        "s3://s3-devopschallenge-day1-weatherdashboard/forcast-data/"
+      ]
+    }
+  ],
+  "globalUploadSettings": {
+    "format": "JSON",
+    "delimiter": ",",
+    "textqualifier": "'",
+    "containsHeader": "true"
+  }
+}
