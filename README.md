@@ -1,6 +1,5 @@
-# 30 Days DevOps Challenge - Dashboard Météo
-# Weather Data Collection System - DevOps Day 1 Challenge
-# Day 1: Building a weather data collection system using AWS S3 and OpenWeather API
+# 30 Days DevOps Challenge - Weather Data Collection System - DevOps Day 1 Challenge
+# Journée 1: Création d'un système de collecte de données météorologiques à l'aide d'AWS S3 et de l'API OpenWeather
 
 ## Aperçu du projet
 Ce projet est un système de collecte de données météorologiques qui démontre les principes fondamentaux de DevOps en combinant :
@@ -12,12 +11,17 @@ Ce projet est un système de collecte de données météorologiques qui démontr
 - Gestion des erreurs
 - Gestion de l'environnement
 
-## Caractéristiques du projet
+## Fonctionnalités du projet
 - Récupère les données météorologiques en temps réel pour plusieurs villes
 - Affiche la température (°F), l'humidité et les conditions météorologiques
 - Stocke automatiquement les données météorologiques dans AWS S3
 - Prend en charge le suivi de plusieurs villes
 - Horodatage de toutes les données pour un suivi historique
+- Intégration de prévisions météorologiques
+- Visualisation des données
+- Données météo de 7 villes
+- Tests automatisés
+- Pipeline CI/CD avec git Actions
 
 ## Architecture technique
 -  Python 3.x
@@ -60,7 +64,7 @@ aws configure
 5. Lancer l'application :
 python src/weather_dashboard.py
 
-Ce que j'ai appris
+## Ce que j'ai appris
 
 Création et gestion de buckets/compartiments AWS S3
 Gestion des variables d'environnement pour des clés API sécurisées
@@ -69,10 +73,5 @@ Flux de travail Git pour le développement de projets
 Gestion des erreurs dans les systèmes distribués
 Gestion des ressources cloud
 
-Future Enhancements
 
-Add weather forecasting
-Implement data visualization
-Add more cities
-Create automated testing
-Set up CI/CD pipeline
+
