@@ -12,7 +12,7 @@ Ce projet est un système de collecte de données météorologiques qui démontr
 - Gestion de l'environnement
 - Tests automatisés avec Python VS Code debugger extension
 
-
+![Project Diagram](src/img/main_diagram.png) 
 
 ## Fonctionnalités du projet
 - Récupère les données météorologiques en temps réel pour plusieurs villes
