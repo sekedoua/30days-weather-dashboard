@@ -1,29 +1,38 @@
-# 30 Days DevOps Challenge - Weather Dashboard
+# 30 Days DevOps Challenge - Weather Data Collection System - DevOps Day 1 Challenge
+# Journée 1: Création d'un système de collecte de données météorologiques à l'aide d'AWS S3 et de l'API OpenWeather
 
-Day 1: Building a weather data collection system using AWS S3 and OpenWeather API
+## Aperçu du projet
+Ce projet est un système de collecte de données météorologiques qui démontre les principes fondamentaux de DevOps en combinant :
+- Intégration d'API externes (API OpenWeather)
+- Stockage dans le cloud (AWS S3)
+- Infrastructure en tant que code
+- Contrôle de version (Git)
+- Développement Python
+- Gestion des erreurs
+- Gestion de l'environnement
+- Tests automatisés avec Python VS Code debugger extension
 
-# Weather Data Collection System - DevOps Day 1 Challenge
 
-## Project Overview
-This project is a Weather Data Collection System that demonstrates core DevOps principles by combining:
-- External API Integration (OpenWeather API)
-- Cloud Storage (AWS S3)
-- Infrastructure as Code
-- Version Control (Git)
-- Python Development
-- Error Handling
-- Environment Management
 
-## Features
-- Fetches real-time weather data for multiple cities
-- Displays temperature (°F), humidity, and weather conditions
-- Automatically stores weather data in AWS S3
-- Supports multiple cities tracking
-- Timestamps all data for historical tracking
+## Fonctionnalités du projet
+- Récupère les données météorologiques en temps réel pour plusieurs villes
+- Affiche la température (°C), l'humidité et les conditions météorologiques
+- Stocke automatiquement les données météorologiques dans AWS S3
+- Prend en charge le suivi de plusieurs villes
+- Horodatage de toutes les données pour un suivi historique
+- Intégration de prévisions météorologiques
+- Visualisation des données données météo de 7 villes Avec AWS QuickSight 
+- Pipeline CI/CD avec GitHub Actions
+   
 
-## Technical Architecture
-- **Language:** Python 3.x
-- **Cloud Provider:** AWS (S3)
+
+![QuickSight image 1](src/img/img/Jointure_Forcast_Weather.PNG) 
+![QuickSight image 2](src/img/quick_sight_dash.PNG)
+![QuickSight image 3](src/img/quick_sight.PNG)
+
+## Architecture technique
+-  Python 3.x
+-   AWS (S3)
 - **External API:** OpenWeather API
 - **Dependencies:** 
   - boto3 (AWS SDK)
@@ -31,48 +40,51 @@ This project is a Weather Data Collection System that demonstrates core DevOps p
   - requests
 
 ```markdown
-## Project Structure
+## Structure du projet
 weather-dashboard/
   src/
     __init__.py
     weather_dashboard.py
+    quick_sight_manifest_forcast.json
+    quick_sight_manifest_weather.json
+    quick_sight_manifest.json
+    img/
+
   tests/
   data/
   .env
   .gitignore
   requirements.txt
 
-## Setup Instructions
+## Instructions de configuration
 1. Clone the repository:
 --bash
-git clone https://github.com/ShaeInTheCloud/30days-weather-dashboard.git
+git clone https://github.com/sekedoua/30days-weather-dashboard.git
 
-3. Install dependencies:
-bashCopypip install -r requirements.txt
+3. Installation des dépendances:
+--bash
+pip install -r requirements.txt
 
-4. Configure environment variables (.env):
-CopyOPENWEATHER_API_KEY=your_api_key
-AWS_BUCKET_NAME=your_bucket_name
+4. Configuration des variable d'environnement fichier ( fichier .env):
+OPENWEATHER_API_KEY="votre_cle_API"
+AWS_BUCKET_NAME="nom_de_votre_compartiment_S3"
 
-4.Configure AWS credentials:
-bashCopyaws configure
+4.Configuration  des accès AWS :
+--bash 
+aws configure
 
-5. Run the application:
+5. Lancer l'application :
 python src/weather_dashboard.py
 
-What I Learned
+## Ce que j'ai appris
 
-AWS S3 bucket creation and management
-Environment variable management for secure API keys
-Python best practices for API integration
-Git workflow for project development
-Error handling in distributed systems
-Cloud resource management
+Création et gestion de buckets/compartiments AWS S3
+Gestion des variables d'environnement pour des clés API sécurisées
+Bonnes pratiques Python pour l'intégration d'API
+Flux de travail Git pour le développement de projets
+Gestion des erreurs dans les systèmes distribués
+Gestion des ressources cloud
 
-Future Enhancements
 
-Add weather forecasting
-Implement data visualization
-Add more cities
-Create automated testing
-Set up CI/CD pipeline
+
+
