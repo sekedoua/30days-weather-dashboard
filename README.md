@@ -57,7 +57,7 @@ weather-dashboard/
   requirements.txt
 ```
 ## Instructions de configuration
-1. Clone the repository:
+1. Clone :
 --bash
 git clone https://github.com/sekedoua/30days-weather-dashboard.git
 
