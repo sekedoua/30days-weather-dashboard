@@ -55,7 +55,7 @@ weather-dashboard/
   .env
   .gitignore
   requirements.txt
-
+```
 ## Instructions de configuration
 1. Clone the repository:
 --bash
