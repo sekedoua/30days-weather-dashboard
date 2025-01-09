@@ -26,7 +26,7 @@ Ce projet est un système de collecte de données météorologiques qui démontr
    
 
 
-![QuickSight image 1](src/img/img/Jointure_Forcast_Weather.PNG) 
+![QuickSight image 1](src/img/Jointure_Forcast_Weather.PNG) 
 ![QuickSight image 2](src/img/quick_sight_dash.PNG)
 ![QuickSight image 3](src/img/quick_sight.PNG)
 
