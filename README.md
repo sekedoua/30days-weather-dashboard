@@ -23,10 +23,12 @@ Ce projet est un système de collecte de données météorologiques qui démontr
 - Intégration de prévisions météorologiques
 - Visualisation des données données météo de 7 villes Avec AWS QuickSight 
 - Pipeline CI/CD avec GitHub Actions
+   
 
-![QuickSight image 1](img/Jointure_Forcast_Weather.PNG)
-![QuickSight image 2](img/quick_sight_dash.PNG)
-![QuickSight image 3](img/quick_sight.PNG)
+
+![QuickSight image 1](src/img/img/Jointure_Forcast_Weather.PNG) 
+![QuickSight image 2](src/img/quick_sight_dash.PNG)
+![QuickSight image 3](src/img/quick_sight.PNG)
 
 ## Architecture technique
 -  Python 3.x
