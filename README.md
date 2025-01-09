@@ -16,17 +16,17 @@ Ce projet est un système de collecte de données météorologiques qui démontr
 
 ## Fonctionnalités du projet
 - Récupère les données météorologiques en temps réel pour plusieurs villes
-- Affiche la température (°F), l'humidité et les conditions météorologiques
+- Affiche la température (°C), l'humidité et les conditions météorologiques
 - Stocke automatiquement les données météorologiques dans AWS S3
 - Prend en charge le suivi de plusieurs villes
 - Horodatage de toutes les données pour un suivi historique
 - Intégration de prévisions météorologiques
 - Visualisation des données données météo de 7 villes Avec AWS QuickSight 
-- Pipeline CI/CD avec git Actions
+- Pipeline CI/CD avec GitHub Actions
 
-![Alt text](img/Jointure_Forcast_Weather.PNG)
-![Alt text](img/quick_sight_dash.PNG)
-![Alt text](img/quick_sight.PNG)
+![QuickSight image 1](img/Jointure_Forcast_Weather.PNG)
+![QuickSight image 2](img/quick_sight_dash.PNG)
+![QuickSight image 3](img/quick_sight.PNG)
 
 ## Architecture technique
 -  Python 3.x
